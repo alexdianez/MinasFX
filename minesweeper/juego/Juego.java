@@ -25,11 +25,11 @@ import minesweeper.objetos.Interfaz;
 
 
 
-// This is the main controller class
+// Esta es la clase principal que controla el juego
 public class Juego implements MouseListener, ActionListener, WindowListener
 {
     public static String dbPath;
-    // "playing" indicates whether a game is running (true) or not (false).
+    // La variable playing devuelve si el juego esta corriendo o no
     private boolean playing; 
 
     private Tablero board;
@@ -42,7 +42,7 @@ public class Juego implements MouseListener, ActionListener, WindowListener
 
     public Juego()
     {
-        // set db path
+        
         String p = "";
 
         try 
@@ -77,7 +77,7 @@ public class Juego implements MouseListener, ActionListener, WindowListener
         resumeGame();
     }
 
-    //-----------------Load Save Game (if any)--------------------------//
+    //Carga el juego//
     
     public void resumeGame()
     {
@@ -161,7 +161,7 @@ public class Juego implements MouseListener, ActionListener, WindowListener
         
     public void createBoard()
     {
-        // Create a new board        
+        // Creamos una nueva tabla      
         int mines = defaULT_MINES;
 
         int r = DEFAULT_ROWS;
@@ -210,7 +210,7 @@ public class Juego implements MouseListener, ActionListener, WindowListener
     }
 
     
-    //-------------------------GAME WON AND GAME LOST ---------------------------------//
+    //Metodos para partida gana y GAME OVER
     
     public void gameWon()
     {
@@ -226,10 +226,10 @@ public class Juego implements MouseListener, ActionListener, WindowListener
         
         JDialog dialog = new JDialog(gui, Dialog.ModalityType.DOCUMENT_MODAL);
         
-        //------MESSAGE-----------//
+        // Mensaje de victoria
         JLabel message = new JLabel("Congratulations, you won the game!", SwingConstants.CENTER);
                 
-        //-----STATISTICS-----------//
+        //Estadisticas 
         JPanel statistics = new JPanel();
         statistics.setLayout(new GridLayout(6,1,0, defaULT_MINES));
         
@@ -270,7 +270,7 @@ public class Juego implements MouseListener, ActionListener, WindowListener
         statistics.setBorder(loweredetched);
         
         
-        //--------BUTTONS----------//
+        //Botones de la interfaz
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1,2, defaULT_MINES,0));
         
@@ -291,7 +291,7 @@ public class Juego implements MouseListener, ActionListener, WindowListener
         buttons.add(exit);
         buttons.add(playAgain);
         
-        //--------DIALOG-------------//
+        // Mensajes por pantalla
         
         JPanel c = new JPanel();
         c.setLayout(new BorderLayout(20,20));
@@ -332,10 +332,10 @@ public class Juego implements MouseListener, ActionListener, WindowListener
 
         JDialog dialog = new JDialog(gui, Dialog.ModalityType.DOCUMENT_MODAL);
         
-        //------MESSAGE-----------//
+        // Mensajes por pantalla
         JLabel message = new JLabel("Sorry, you lost this game. Better luck next time!", SwingConstants.CENTER);
                 
-        //-----STATISTICS-----------//
+        //Estadisticas
         JPanel statistics = new JPanel();
         statistics.setLayout(new GridLayout(5,1,0, defaULT_MINES));
         
@@ -368,7 +368,7 @@ public class Juego implements MouseListener, ActionListener, WindowListener
         statistics.setBorder(loweredetched);
         
         
-        //--------BUTTONS----------//
+        //botones
         JPanel buttons = new JPanel();
         buttons.setLayout(new GridLayout(1,3,2,0));
         
